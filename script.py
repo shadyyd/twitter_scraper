@@ -19,8 +19,10 @@ def scrape_user(username):
     # Build the target URL
     target_url = f'https://twitter.com/{username}'
 
-    # Initialize Chrome webdriver
-    driver = webdriver.Chrome()
+# Initialize Chrome webdriver
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Run Chrome in headless mode (no GUI)
+    driver = webdriver.Chrome(options=options)
 
     try:
         # Get the webpage content
